@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/schema_name}
+    username: ${DB_USERNAME:usernmae}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.postgresql.Driver
