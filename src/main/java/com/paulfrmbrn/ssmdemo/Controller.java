@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     private final OrderService orderService;
+    private final OrderFulfillmentProcess process;
 
-    public Controller(OrderService orderService) {
+    public Controller(OrderService orderService, OrderFulfillmentProcess process) {
         this.orderService = orderService;
+        this.process = process;
     }
 
     @GetMapping("/orders")
@@ -38,7 +40,8 @@ public class Controller {
 
     @PostMapping("/orders/{id}/confirm")
     Order confirm(@PathVariable Long id, @RequestBody CommentData data) {
-        return orderService.confirm(id, data.getComment());
+        //return orderService.confirm(id, data.getComment());
+        return process.confirmOrder(id, data.getComment());
     }
 
     @PostMapping("/orders/{id}/fulfill")

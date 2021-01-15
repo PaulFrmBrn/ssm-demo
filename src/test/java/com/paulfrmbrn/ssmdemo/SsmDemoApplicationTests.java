@@ -125,7 +125,7 @@ class SsmDemoApplicationTests {
 		).andExpect(status().is5xxServerError()).andReturn().getResponse().getContentAsString();
 
 		logger.info("result={}", result);
-		assertEquals("Order is in wrong state: expected=CREATED, got=CONFIRMED", result);
+		assertEquals("Order is in wrong state", result);
 
 	}
 
